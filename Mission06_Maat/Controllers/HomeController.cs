@@ -23,9 +23,17 @@ namespace Mission06_Maat.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult movieCollection()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult movieCollection(Application response)
+        {
+            return View("Confirmation", response);
         }
     }
 }
