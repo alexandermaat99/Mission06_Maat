@@ -6,11 +6,12 @@ namespace Mission06_Maat.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger) // constructor 
+        private MovieApplicationContext _context; // field
+
+        public HomeController(MovieApplicationContext temp) // constructor 
         {
-            _logger = logger;
+            _context = temp;
         }
 
         public IActionResult Index()
@@ -33,6 +34,8 @@ namespace Mission06_Maat.Controllers
         [HttpPost]
         public IActionResult movieCollection(Application response)
         {
+            _context.Application.Add(response); // adds record to the database
+            _context.SaveChanges(); // saves changes to the database
             return View("Confirmation", response);
         }
     }

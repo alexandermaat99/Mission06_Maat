@@ -1,7 +1,10 @@
-﻿namespace Mission06_Maat.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mission06_Maat.Models
 {
     public class Application
     {
+        [Key]
         public int moveiID { get; set; } // auto-implemented property
         public string category { get; set; } // auto-implemented property
         public string title { get; set; } // auto-implemented property
