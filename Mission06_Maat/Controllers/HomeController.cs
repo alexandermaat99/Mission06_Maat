@@ -36,7 +36,17 @@ namespace Mission06_Maat.Controllers
         {
             _context.Application.Add(response); // adds record to the database
             _context.SaveChanges(); // saves changes to the database
+
             return View("Confirmation", response);
+        }
+
+        public IActionResult movieListView()
+        {
+            //linq
+            var application = _context.Application
+                .OrderBy(x => x.moveiID);
+
+            return View(application);
         }
     }
 }

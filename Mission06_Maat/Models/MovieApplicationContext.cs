@@ -2,7 +2,7 @@
 
 namespace Mission06_Maat.Models
 {
-    public class MovieApplicationContext : DbContext
+    public class MovieApplicationContext : DbContext // connection from app to database
     {
         public MovieApplicationContext(DbContextOptions<MovieApplicationContext> options) : base(options) // constructor
         {
