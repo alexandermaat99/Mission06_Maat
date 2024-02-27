@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mission06_Maat.Models;
-using Mission06_Maat.Models;
 using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -33,7 +32,7 @@ namespace Mission06_Maat.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddMovies(AddMoviesContext response)
+        public IActionResult AddMovies(Movie response)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +70,7 @@ namespace Mission06_Maat.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(AddMoviesContext updateMovie)
+        public IActionResult Edit(Movie updateMovie)
         {
             _context.Update(updateMovie);
             _context.SaveChanges();

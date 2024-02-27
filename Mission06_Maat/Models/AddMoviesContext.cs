@@ -1,7 +1,6 @@
 ﻿using Mission06_Maat.Models;
 using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;
-using Mission06_Maat.Models;
 
 namespace Mission06_Maat.Models
 {
