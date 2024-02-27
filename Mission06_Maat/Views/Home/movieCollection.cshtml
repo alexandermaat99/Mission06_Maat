@@ -1,27 +1,35 @@
-﻿@model Application
+﻿@model Mission06_Maat.Models.Movie
 
 <h2>Add a New Movie</h2>
 
-<form method="post">
+<form asp-action="movieCollection" method="post">
 
-    <label asp-for="category">Category</label>
-    <input asp-for="category" required />
+    <!-- CategoryId (Dropdown List) -->
+    <!-- Assuming you have a ViewBag or ViewData with category list -->
+    <label for="CategoryId">Category</label>
+    <select asp-for="CategoryId" asp-items="ViewBag.Categories">
+        <option value="">Select a Category</option>
+    </select>
     <br />
 
-    <label asp-for="title">Title</label>
-    <input asp-for="title" required />
+    <!-- Title -->
+    <label asp-for="Title">Title</label>
+    <input asp-for="Title" required />
     <br />
 
-    <label asp-for="year">Year</label>
-    <input asp-for="year" type="number" required />
+    <!-- Year -->
+    <label asp-for="Year">Year</label>
+    <input asp-for="Year" type="number" required />
     <br />
 
-    <label asp-for="director">Director</label>
-    <input asp-for="director" required />
+    <!-- Director -->
+    <label asp-for="Director">Director</label>
+    <input asp-for="Director" />
     <br />
 
-    <label asp-for="rating">Rating</label>
-    <select asp-for="rating" required>
+    <!-- Rating -->
+    <label asp-for="Rating">Rating</label>
+    <select asp-for="Rating">
         <option value="">Select a Rating</option>
         <option value="G">G</option>
         <option value="PG">PG</option>
@@ -30,20 +38,24 @@
     </select>
     <br />
 
-    <label asp-for="edited">Edited</label>
-    <select asp-for="edited">
-        <option value="">Select an Option</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-    </select>
+    <!-- Edited (Checkbox) -->
+    <label asp-for="Edited">Edited</label>
+    <input asp-for="Edited" type="checkbox" />
     <br />
 
-    <label asp-for="lentTo">Lent To</label>
-    <input asp-for="lentTo" />
+    <!-- LentTo -->
+    <label asp-for="LentTo">Lent To</label>
+    <input asp-for="LentTo" />
     <br />
 
-    <label asp-for="notes">Notes</label>
-    <input asp-for="notes" maxlength="25" />
+    <!-- CopiedToPlex (Checkbox) -->
+    <label asp-for="CopiedToPlex">Copied to Plex</label>
+    <input asp-for="CopiedToPlex" type="checkbox" />
+    <br />
+
+    <!-- Notes -->
+    <label asp-for="Notes">Notes</label>
+    <input asp-for="Notes" maxlength="25" />
     <br />
 
     <button type="submit">Add New Movie</button>

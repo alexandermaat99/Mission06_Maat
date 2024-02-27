@@ -1,34 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<Mission06_Maat.Models.Movie>
+
 @{
+    ViewData["Title"] = "Movie List";
 }
-@*
 
-@* showing entries that are in the database  *@
+<h2>Movie List</h2>
 
-@model Application
-<table>
-
+<table class="table">
     <thead>
-        <td>Movie ID</td>
-        <td>CategoryId</td>
-        <td>Title</td>
-        <td>Year</td>
-        <td>Director</td>
-        <td>Rating</td>
-        <td>LentTo</td>
-        <td>CopiedToPlex</td>
-        <td>Notes</td>
+        <tr>
+            <th>Movie ID</th>
+            <th>Category ID</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Edited</th>
+            <th>Lent To</th>
+            <th>Copied To Plex</th>
+            <th>Notes</th>
+        </tr>
     </thead>
-
     <tbody>
-        <td>@Model.moveiID</td>
-        <td>@Model.category</td>
-        <td>@Model.title</td>
-        <td>@Model.year</td>
-        <td>@Model.director</td>
-        <td>@Model.lentTo</td>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.MovieId</td>
+                <td>@movie.CategoryId</td>
+                <td>@movie.Title</td>
+                <td>@movie.Year</td>
+                <td>@movie.Director</td>
+                <td>@movie.Rating</td>
+                <td>@(movie.Edited ? "Yes" : "No")</td>
+                <td>@movie.LentTo</td>
+                <td>@(movie.CopiedToPlex ? "Yes" : "No")</td>
+                <td>@movie.Notes</td>
+            </tr>
+        }
     </tbody>
-
 </table>
