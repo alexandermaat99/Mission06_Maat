@@ -8,7 +8,7 @@ using Mission06_Maat.Models;
 
 namespace Mission06_Maat.Migrations
 {
-    [DbContext(typeof(MovieApplicationContext))]
+    [DbContext(typeof(Movie))]
     partial class MovieApplicationContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

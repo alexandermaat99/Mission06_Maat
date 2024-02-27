@@ -1,39 +1,38 @@
-﻿using System;
+﻿using Mission06_Maat.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Mission06_Maat.Models
 {
     public class Movie
     {
+        //required fields: title, year, edited, copiedtoplex
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int MovieId { get; set; }
 
-        // Foreign key for Categories
+        //set foreign key relationship
+        [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
-
+        [Required]
+        public Category? Category { get; set; }
         [Required]
         public string Title { get; set; }
-
         [Required]
+        //prevent unrealistic years
+        [Range(1888, int.MaxValue, ErrorMessage = "The year must be 1888 or later")]
         public int Year { get; set; }
 
-        public string Director { get; set; }
+        public string? Director { get; set; }
 
-        public string Rating { get; set; }
-
+        public string? Rating { get; set; }
         [Required]
-        public bool Edited { get; set; } // Assuming 0 is false and 1 is true
-
-        public string LentTo { get; set; }
-
+        public bool Edited { get; set; }
+        public string? LentTo { get; set; }
         [Required]
-        public bool CopiedToPlex { get; set; } // Assuming 0 is false and 1 is true
+        public bool CopiedToPlex { get; set; }
+        public string? Notes { get; set; }
 
-        public string Notes { get; set; }
-
-        // Navigation property for the Categories table
-        public Category Category { get; set; }
     }
 }

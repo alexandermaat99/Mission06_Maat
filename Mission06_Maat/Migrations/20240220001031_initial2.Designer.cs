@@ -9,7 +9,7 @@ using Mission06_Maat.Models;
 
 namespace Mission06_Maat.Migrations
 {
-    [DbContext(typeof(MovieApplicationContext))]
+    [DbContext(typeof(Movie))]
     [Migration("20240220001031_initial2")]
     partial class initial2
     {
